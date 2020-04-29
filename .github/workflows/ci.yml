@@ -1,6 +1,13 @@
 name: ci
 on: [push]
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-golangci-lint@v1
+        with:
+          github_token: ${{ github.token }}
   cibuild:
     name: cibuild
     runs-on: ubuntu-18.04
@@ -11,4 +18,3 @@ jobs:
           go-version: '~1.14.0'
       - run: script/generate --check
       - run: script/test
-      - run: script/lint
