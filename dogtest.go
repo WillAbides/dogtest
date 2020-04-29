@@ -1,8 +1,11 @@
 package dogtest
 
 import (
-	"fmt"
 	"io/ioutil"
+
+
+	"fmt"
+
 )
 
 func Foo() {
